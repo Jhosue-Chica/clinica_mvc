@@ -1,187 +1,116 @@
-# Sistema de Gestión de Clínica (MVC)
+# Sistema de Gestión de Clínica Médica
 
-## Descripción
-Sistema web para la gestión de una clínica desarrollado con el patrón de arquitectura MVC (Modelo-Vista-Controlador). Esta aplicación permite la administración eficiente de los procesos principales de una clínica médica, facilitando la gestión de pacientes, citas y personal médico.
+Sistema de gestión para clínicas médicas desarrollado en Python con Flask, implementando el patrón MVC (Modelo-Vista-Controlador).
 
-## Funcionalidades principales
-- Gestión de pacientes
-  - Registro de pacientes nuevos
-  - Actualización de información personal
-  - Historial de visitas
-  - Gestión de documentos médicos
+## Características Principales
 
-- Gestión de citas médicas 
-  - Programación de citas
-  - Cancelación y reprogramación
-  - Recordatorios automáticos
-  - Vista de calendario médico
-
-- Gestión de historias clínicas
-  - Registro de consultas
-  - Historial médico completo
-  - Gestión de diagnósticos
-  - Seguimiento de tratamientos
-
-- Gestión de personal médico
-  - Registro de médicos y especialidades
-  - Control de horarios
-  - Asignación de consultorios
-  - Gestión de disponibilidad
-
-- Gestión de usuarios y roles
-  - Administración de perfiles
-  - Control de accesos
-  - Registro de actividades
-  - Configuración de permisos
-
+- Gestión completa de pacientes, médicos y citas
+- Interfaz web moderna y responsiva
+- Base de datos SQL Server para almacenamiento seguro de datos
+- Autenticación y control de acceso
 - Reportes y estadísticas
-  - Informes de atención
-  - Estadísticas de pacientes
-  - Reportes financieros
-  - Indicadores de gestión
 
-## Tecnologías utilizadas
-- Backend:
-  - PHP 8.1
-  - Laravel 10.x
-  - MySQL 8.0
-  
-- Frontend:
-  - HTML5
-  - CSS3
-  - JavaScript
-  - Bootstrap 5
-  - jQuery
+## Estructura del Proyecto
 
-- Herramientas adicionales:
-  - Composer
-  - npm
-  - Git
-  - PHPUnit para testing
+```
+clinica_mvc/
+├── config/                 # Configuración de la aplicación
+│   └── database.py        # Conexión a la base de datos
+├── controllers/           # Controladores (lógica de negocio)
+│   ├── cita_controller.py
+│   ├── paciente_controller.py
+│   └── medico_controller.py
+├── models/               # Modelos de datos
+│   ├── cita.py
+│   ├── paciente.py
+│   └── medico.py
+├── views/               # Vistas de consola
+│   ├── cita_view.py
+│   ├── paciente_view.py
+│   └── medico_view.py
+├── web_controllers/     # Controladores web
+│   ├── cita_routes.py
+│   ├── paciente_routes.py
+│   └── medico_routes.py
+├── templates/          # Plantillas HTML
+│   ├── citas/
+│   ├── pacientes/
+│   └── medicos/
+├── static/            # Archivos estáticos (CSS, JS, imágenes)
+├── forms/             # Formularios WTForms
+├── app.py            # Aplicación principal
+└── requirements.txt  # Dependencias del proyecto
+```
 
-## Requisitos previos
-1. PHP >= 8.1
-2. Composer
-3. Node.js y npm
-4. MySQL >= 8.0
-5. Servidor web (Apache/Nginx)
-6. Git
+## Requisitos del Sistema
+
+- Python 3.8 o superior
+- SQL Server
+- pip (gestor de paquetes de Python)
 
 ## Instalación
-1. Clonar el repositorio
+
+1. Clonar el repositorio:
 ```bash
-git clone https://github.com/Jhosue-Chica/clinica_mvc.git
+git clone [url-del-repositorio]
 cd clinica_mvc
 ```
 
-2. Instalar dependencias de PHP
+2. Crear un entorno virtual:
 ```bash
-composer install
+python -m venv venv
+source venv/bin/activate  # En Windows: venv\Scripts\activate
 ```
 
-3. Instalar dependencias de JavaScript
+3. Instalar dependencias:
 ```bash
-npm install
+pip install -r requirements.txt
 ```
 
-4. Configurar el entorno
+4. Configurar la base de datos:
+- Crear una base de datos en SQL Server
+- Actualizar la configuración en `config/database.py`
+
+5. Iniciar la aplicación:
 ```bash
-cp .env.example .env
-php artisan key:generate
+python app.py
 ```
 
-5. Configurar la base de datos
-```bash
-php artisan migrate
-php artisan db:seed
-```
+## Funcionalidades
 
-6. Compilar assets
-```bash
-npm run dev
-```
+### Gestión de Pacientes
+- Registro de información personal
+- Historial médico
+- Búsqueda y filtrado de pacientes
 
-7. Iniciar el servidor
-```bash
-php artisan serve
-```
+### Gestión de Médicos
+- Registro de especialistas
+- Control de horarios
+- Asignación de consultorios
 
-## Configuración
-1. Configuración del entorno (.env):
-   - DB_DATABASE=clinica_db
-   - DB_USERNAME=root
-   - DB_PASSWORD=your_password
-   - MAIL_MAILER=smtp
-   - MAIL_HOST=your_mail_host
-   - MAIL_PORT=your_mail_port
+### Gestión de Citas
+- Programación de consultas
+- Recordatorios automáticos
+- Control de disponibilidad
 
-2. Configuración de permisos:
-```bash
-chmod -R 777 storage
-chmod -R 777 bootstrap/cache
-```
+## Tecnologías Utilizadas
 
-## Estructura del proyecto
-```
-clinica_mvc/
-├── app/
-│   ├── Http/
-│   │   ├── Controllers/
-│   │   └── Middleware/
-│   ├── Models/
-│   └── Services/
-├── config/
-├── database/
-│   ├── migrations/
-│   └── seeders/
-├── public/
-├── resources/
-│   ├── views/
-│   ├── js/
-│   └── css/
-├── routes/
-├── storage/
-├── tests/
-└── vendor/
-```
-
-## Uso
-1. Acceder al sistema: http://localhost:8000
-2. Credenciales por defecto:
-   - Admin: admin@clinica.com / password
-   - Doctor: doctor@clinica.com / password
-   - Paciente: paciente@clinica.com / password
+- **Backend**: Python, Flask
+- **Frontend**: HTML5, CSS3, JavaScript, Bootstrap
+- **Base de Datos**: SQL Server
+- **ORM**: pyodbc
+- **Formularios**: WTForms
+- **Plantillas**: Jinja2
 
 ## Contribución
-1. Fork el proyecto
-2. Cree una rama para su feature (`git checkout -b feature/NuevaFuncionalidad`)
-3. Commit sus cambios (`git commit -m 'Agregar nueva funcionalidad'`)
-4. Push a la rama (`git push origin feature/NuevaFuncionalidad`)
-5. Abra un Pull Request
 
-## Testing
-```bash
-php artisan test
-```
+1. Hacer fork del proyecto
+2. Crear una rama para la nueva característica (`git checkout -b feature/nueva-caracteristica`)
+3. Hacer commit de los cambios (`git commit -am 'Agregar nueva característica'`)
+4. Hacer push a la rama (`git push origin feature/nueva-caracteristica`)
+5. Crear un Pull Request
 
 ## Licencia
-Este proyecto está bajo la licencia MIT - ver el archivo [LICENSE.md](LICENSE.md) para más detalles
 
-## Autores
-- Jhosue Israel Chica Peñarrieta - Desarrollo y documentación
+Este proyecto está bajo la Licencia MIT. Ver el archivo `LICENSE` para más detalles.
 
-## Contacto y Soporte
-- Email: jhosue.chica@example.com
-- GitHub: [@Jhosue-Chica](https://github.com/Jhosue-Chica)
-- LinkedIn: [Jhosue Chica](https://linkedin.com/in/jhosue-chica)
-
-## Agradecimientos
-- A todos los contribuidores que han participado en este proyecto
-- A la comunidad de desarrolladores de Laravel
-- A los usuarios que han proporcionado feedback valioso
-
-## Changelog
-- v1.0.0 (2024-04-28)
-  - Lanzamiento inicial
-  - Implementación de funcionalidades básicas
-  - Sistema de autenticación y autorización
