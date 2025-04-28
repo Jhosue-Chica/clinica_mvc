@@ -1,0 +1,36 @@
+<!-- templates/medicos/ver.html -->
+{% extends 'base.html' %}
+
+{% block title %}Detalle de Médico - Sistema de Gestión de Clínica{% endblock %}
+
+{% block content %}
+<div class="card">
+    <div class="card-header">
+        <h2>Información del Médico</h2>
+    </div>
+    <div class="card-body">
+        <div class="row mb-3">
+            <div class="col-md-3 fw-bold">ID:</div>
+            <div class="col-md-9">{{ medico.id }}</div>
+        </div>
+        <div class="row mb-3">
+            <div class="col-md-3 fw-bold">Nombre:</div>
+            <div class="col-md-9">{{ medico.nombre }}</div>
+        </div>
+        <div class="row mb-3">
+            <div class="col-md-3 fw-bold">Especialidad:</div>
+            <div class="col-md-9">{{ medico.especialidad }}</div>
+        </div>
+        <div class="row mb-3">
+            <div class="col-md-3 fw-bold">Email:</div>
+            <div class="col-md-9">{{ medico.email or 'No especificado' }}</div>
+        </div>
+        
+        <div class="mt-4 d-flex gap-2">
+            <a href="{{ url_for('medicos.listar_medicos') }}" class="btn btn-secondary">Volver a la lista</a>
+            <a href="{{ url_for('medicos.editar_medico', id=medico.id) }}" class="btn btn-warning">Editar</a>
+            <a href="{{ url_for('citas.citas_por_medico', id_medico=medico.id) }}" class="btn btn-info">Ver Citas</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

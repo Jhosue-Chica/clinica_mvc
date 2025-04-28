@@ -1,0 +1,170 @@
+/* static/css/styles.css */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f8f9fa;
+    padding-bottom: 70px;
+}
+
+.navbar {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.card {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 1.5rem;
+    border: none;
+}
+
+.card-header {
+    background-color: #f1f5f9;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.05);
+    z-index: 1000;
+}
+
+.jumbotron {
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.btn-group {
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* Animaciones para las alertas */
+.alert {
+    animation: slideDown 0.5s ease;
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Estilos para la página de inicio */
+.display-4 {
+    font-weight: 600;
+    color: #2c3e50;
+}
+
+/* Estilos para tablas */
+.table {
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.table thead th {
+    background-color: #f1f5f9;
+    border-bottom: 2px solid #e2e8f0;
+}
+
+.table tbody tr:hover {
+    background-color: #f1f7fd;
+}
+
+/* Formularios */
+.form-control:focus, .form-select:focus {
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 0.25rem rgba(59, 130, 246, 0.25);
+}
+
+/* Botones */
+.btn-primary {
+    background-color: #3b82f6;
+    border-color: #3b82f6;
+}
+
+.btn-primary:hover {
+    background-color: #2563eb;
+    border-color: #2563eb;
+}
+
+.btn-success {
+    background-color: #10b981;
+    border-color: #10b981;
+}
+
+.btn-success:hover {
+    background-color: #059669;
+    border-color: #059669;
+}
+
+.btn-info {
+    background-color: #06b6d4;
+    border-color: #06b6d4;
+}
+
+.btn-info:hover {
+    background-color: #0891b2;
+    border-color: #0891b2;
+}
+
+.btn-warning {
+    background-color: #f59e0b;
+    border-color: #f59e0b;
+}
+
+.btn-warning:hover {
+    background-color: #d97706;
+    border-color: #d97706;
+}
+
+.btn-danger {
+    background-color: #ef4444;
+    border-color: #ef4444;
+}
+
+.btn-danger:hover {
+    background-color: #dc2626;
+    border-color: #dc2626;
+}
+
+/* Estilos para modales */
+.modal-header {
+    background-color: #f1f5f9;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.modal-footer {
+    background-color: #f8fafc;
+    border-top: 1px solid #e2e8f0;
+}
+
+/* Estilo para página de error 404 */
+.display-1 {
+    font-size: 6rem;
+    font-weight: 700;
+    color: #6b7280;
+}
+
+/* Media queries para responsividad */
+@media (max-width: 768px) {
+    .container {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+    
+    .jumbotron {
+        padding: 2rem 1rem;
+    }
+    
+    .display-4 {
+        font-size: 2.5rem;
+    }
+    
+    .display-1 {
+        font-size: 4rem;
+    }
+}

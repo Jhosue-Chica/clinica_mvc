@@ -1,0 +1,58 @@
+<!-- templates/medicos/editar.html -->
+{% extends 'base.html' %}
+
+{% block title %}Editar Médico - Sistema de Gestión de Clínica{% endblock %}
+
+{% block content %}
+<div class="card">
+    <div class="card-header">
+        <h2>Editar Médico</h2>
+    </div>
+    <div class="card-body">
+        <form method="post">
+            {{ form.csrf_token }}
+            
+            <div class="mb-3">
+                {{ form.nombre.label(class="form-label") }}
+                {{ form.nombre(class="form-control") }}
+                {% if form.nombre.errors %}
+                    <div class="text-danger">
+                        {% for error in form.nombre.errors %}
+                            {{ error }}
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            </div>
+            
+            <div class="mb-3">
+                {{ form.especialidad.label(class="form-label") }}
+                {{ form.especialidad(class="form-control") }}
+                {% if form.especialidad.errors %}
+                    <div class="text-danger">
+                        {% for error in form.especialidad.errors %}
+                            {{ error }}
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            </div>
+            
+            <div class="mb-3">
+                {{ form.email.label(class="form-label") }}
+                {{ form.email(class="form-control") }}
+                {% if form.email.errors %}
+                    <div class="text-danger">
+                        {% for error in form.email.errors %}
+                            {{ error }}
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            </div>
+            
+            <div class="d-flex justify-content-between">
+                <a href="{{ url_for('medicos.listar_medicos') }}" class="btn btn-secondary">Cancelar</a>
+                {{ form.submit(class="btn btn-primary") }}
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

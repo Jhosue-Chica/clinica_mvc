@@ -1,0 +1,4 @@
+# controllers/__init__.py
+from controllers.paciente_controller import PacienteController
+from controllers.medico_controller import MedicoController
+from controllers.cita_controller import CitaController

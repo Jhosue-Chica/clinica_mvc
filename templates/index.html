@@ -1,0 +1,49 @@
+<!-- templates/index.html -->
+{% extends 'base.html' %}
+
+{% block title %}Inicio - Sistema de Gestión de Clínica{% endblock %}
+
+{% block content %}
+<div class="jumbotron bg-light p-5 rounded">
+    <h1 class="display-4">Sistema de Gestión de Clínica</h1>
+    <p class="lead">Bienvenido al sistema de gestión de pacientes, médicos y citas médicas.</p>
+    <hr class="my-4">
+    <p>Este sistema permite administrar de manera eficiente la información de la clínica.</p>
+    <div class="mt-4">
+        <a class="btn btn-primary btn-lg" href="{{ url_for('pacientes.listar_pacientes') }}" role="button">Gestionar Pacientes</a>
+        <a class="btn btn-success btn-lg" href="{{ url_for('medicos.listar_medicos') }}" role="button">Gestionar Médicos</a>
+        <a class="btn btn-info btn-lg text-white" href="{{ url_for('citas.listar_citas') }}" role="button">Gestionar Citas</a>
+    </div>
+</div>
+
+<div class="row mt-5">
+    <div class="col-md-4">
+        <div class="card mb-4">
+            <div class="card-body">
+                <h5 class="card-title">Pacientes</h5>
+                <p class="card-text">Administre la información de los pacientes registrados en la clínica.</p>
+                <a href="{{ url_for('pacientes.listar_pacientes') }}" class="btn btn-primary">Ir a Pacientes</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card mb-4">
+            <div class="card-body">
+                <h5 class="card-title">Médicos</h5>
+                <p class="card-text">Gestione la información del personal médico y sus especialidades.</p>
+                <a href="{{ url_for('medicos.listar_medicos') }}" class="btn btn-success">Ir a Médicos</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card mb-4">
+            <div class="card-body">
+                <h5 class="card-title">Citas</h5>
+                <p class="card-text">Agende y administre las citas médicas entre pacientes y médicos.</p>
+                <a href="{{ url_for('citas.listar_citas') }}" class="btn btn-info text-white">Ir a Citas</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+

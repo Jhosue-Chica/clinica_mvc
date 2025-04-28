@@ -1,0 +1,55 @@
+<!-- templates/citas/ver.html -->
+{% extends 'base.html' %}
+
+{% block title %}Detalle de Cita - Sistema de Gestión de Clínica{% endblock %}
+
+{% block content %}
+<div class="card">
+    <div class="card-header">
+        <h2>Información de la Cita</h2>
+    </div>
+    <div class="card-body">
+        <div class="row mb-3">
+            <div class="col-md-3 fw-bold">ID:</div>
+            <div class="col-md-9">{{ cita.id }}</div>
+        </div>
+        <div class="row mb-3">
+            <div class="col-md-3 fw-bold">Fecha y Hora:</div>
+            <div class="col-md-9">{{ cita.fecha_hora.strftime('%d-%m-%Y %H:%M') }}</div>
+        </div>
+        <div class="row mb-3">
+            <div class="col-md-3 fw-bold">Paciente:</div>
+            <div class="col-md-9">
+                {% if cita.paciente %}
+                    <a href="{{ url_for('pacientes.ver_paciente', id=cita.id_paciente) }}">
+                        {{ cita.paciente.nombre }} {{ cita.paciente.apellido }}
+                    </a>
+                {% else %}
+                    ID: {{ cita.id_paciente }}
+                {% endif %}
+            </div>
+        </div>
+        <div class="row mb-3">
+            <div class="col-md-3 fw-bold">Médico:</div>
+            <div class="col-md-9">
+                {% if cita.medico %}
+                    <a href="{{ url_for('medicos.ver_medico', id=cita.id_medico) }}">
+                        {{ cita.medico.nombre }} ({{ cita.medico.especialidad }})
+                    </a>
+                {% else %}
+                    ID: {{ cita.id_medico }}
+                {% endif %}
+            </div>
+        </div>
+        <div class="row mb-3">
+            <div class="col-md-3 fw-bold">Motivo:</div>
+            <div class="col-md-9">{{ cita.motivo or 'No especificado' }}</div>
+        </div>
+        
+        <div class="mt-4 d-flex gap-2">
+            <a href="{{ url_for('citas.listar_citas') }}" class="btn btn-secondary">Volver a la lista</a>
+            <a href="{{ url_for('citas.editar_cita', id=cita.id) }}" class="btn btn-warning">Editar</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

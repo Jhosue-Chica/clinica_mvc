@@ -1,0 +1,48 @@
+<!-- templates/citas/buscar_fecha.html -->
+{% extends 'base.html' %}
+
+{% block title %}Buscar Citas por Fecha - Sistema de Gestión de Clínica{% endblock %}
+
+{% block content %}
+<div class="card">
+    <div class="card-header">
+        <h2>Buscar Citas por Fecha</h2>
+    </div>
+    <div class="card-body">
+        <form method="post">
+            {{ form.csrf_token }}
+            
+            <div class="mb-3">
+                {{ form.fecha_inicio.label(class="form-label") }}
+                {{ form.fecha_inicio(class="form-control", type="date") }}
+                {% if form.fecha_inicio.errors %}
+                    <div class="text-danger">
+                        {% for error in form.fecha_inicio.errors %}
+                            {{ error }}
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            </div>
+            
+            <div class="mb-3">
+                {{ form.fecha_fin.label(class="form-label") }}
+                {{ form.fecha_fin(class="form-control", type="date") }}
+                {% if form.fecha_fin.errors %}
+                    <div class="text-danger">
+                        {% for error in form.fecha_fin.errors %}
+                            {{ error }}
+                        {% endfor %}
+                    </div>
+                {% endif %}
+                <div class="form-text">Si no selecciona fecha final, se mostrarán solo las citas de la fecha inicial.</div>
+            </div>
+            
+            <div class="d-flex justify-content-between">
+                <a href="{{ url_for('citas.listar_citas') }}" class="btn btn-secondary">Cancelar</a>
+                {{ form.submit(class="btn btn-primary") }}
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}
+
